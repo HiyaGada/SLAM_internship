@@ -1,5 +1,7 @@
 # Equivariant Filter
 
+These set of codes include error propagation (from the measurements to the filter).
+
 ### Steps
 
 - Run the [simulator.m](https://github.com/HiyaGada/SLAM_internship/blob/main/EqF_noise/simulator.m) file
