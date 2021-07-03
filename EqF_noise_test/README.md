@@ -1,4 +1,5 @@
 # Equivariant Filter
+This is just a test/temporary folder and shall be removed at the end of the project.
 
 ### Steps
 
