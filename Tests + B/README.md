@@ -99,7 +99,7 @@ Type 3 is the best if our input has a lot of noise and when the origin is far aw
 
 In conclusion, we must focus more on the matrix ![](https://latex.codecogs.com/gif.latex?C%5E%5Ccirc), and try to reduce its condition number (theoretical perspective). Also, using a method like Type 3 would give us more precision (practical perspective).  
 
-It is theoretically unclear why Type 2 shows no error when the code is run.
+It is theoretically unclear why Type 2 shows no error when the code is run for the special case.
 
 
 
