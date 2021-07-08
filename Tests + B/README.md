@@ -91,7 +91,9 @@ Type 3 origin ensures that the floating point number is distributed about 0, hen
 
 ### Conclusion
 
-Type 3 should be preferred over Type 2 if the origin is far away. 
+Type 3 should be preferred over Type 2 if the origin is far away.
+
+Type 2 showed the worst result in all cases.
 
 Type 1 gave good results only when the origin was closer. 
 
