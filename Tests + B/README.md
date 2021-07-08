@@ -71,7 +71,7 @@ We consider the initial estimate ![](https://latex.codecogs.com/gif.latex?%5Chat
 Error comparison:
 Type 1 < Type 3 <<< Type 2
 
-##### Special case
+#### Special case
 
 In this case, we take the initial estimate farthest from the actual values, i.e. [5; 5; 0] for the landmarks.
 
