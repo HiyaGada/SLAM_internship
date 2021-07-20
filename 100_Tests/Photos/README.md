@@ -34,7 +34,7 @@ Type 3 < Type 1 < Type 2
 We consider the initial estimate ![](https://latex.codecogs.com/gif.latex?%5Chat%7B%5Cxi%7D%280%29) same as Case 1, but with higher noise.
 
 Error comparison:
-Type 3 < Type 2 << Type 1
+Type 3 << Type 2 < Type 1
 
 ##### Case 3
 
@@ -47,7 +47,7 @@ Type 3 < Type 2 << Type 1
 We consider the initial estimate ![](https://latex.codecogs.com/gif.latex?%5Chat%7B%5Cxi%7D%280%29) same as Case 1, but with the highest noise.
 
 Error comparison:
-Type 1 < Type 3 <<< Type 2
+Type 1 < Type 3 << Type 2
 
 ##### Case 4
 ![2_ln_1](https://github.com/HiyaGada/SLAM_internship/blob/main/100_Tests/Photos/%5B1%3B1%3B0%5D_lownoise_type1.png)
@@ -59,7 +59,7 @@ Type 1 < Type 3 <<< Type 2
 We consider the initial estimate ![](https://latex.codecogs.com/gif.latex?%5Chat%7B%5Cxi%7D%280%29) a little farther from to the actual values, i.e. [1; 1; 0] for the landmarks. 
 
 Error comparison:
-Type 1 < Type 3 << Type 2
+Type 1 < Type 3 <<< Type 2
 
 ##### Case 5
 ![2_hn_1](https://github.com/HiyaGada/SLAM_internship/blob/main/100_Tests/Photos/%5B1%3B1%3B0%5D_highnoise_type1.png)
@@ -84,7 +84,7 @@ Type 1 < Type 2 < Type 3
 We consider the initial estimate ![](https://latex.codecogs.com/gif.latex?%5Chat%7B%5Cxi%7D%280%29) farther from the actual values, i.e. [2; 2; 0] for the landmarks. 
 
 Error comparison:
-Type 1 < Type 3 <<< Type 2
+Type 1 < Type 3 <<<< Type 2
 
 ##### Case 7
 
@@ -97,7 +97,7 @@ We consider the initial estimate ![](https://latex.codecogs.com/gif.latex?%5Chat
 Type 1 does not run during simulation possibly due to floating point error.
 
 Error comparison:
-Type 3 <<<< Type 2
+Type 3 <<<<<< Type 2
 
 
 ### Conclusion
@@ -107,6 +107,12 @@ Type 3 should be preferred over Type 2 if the origin is far away.
 Type 1 gave fairly good results in most cases. However it gave a singular matrix error when the origin was taken too far away from the landmarks. Decreasing the time interval would help but would increase the cost.
 
 Type 3 is the best if our input has a lot of noise and when the origin is far away, which is usually the worst possible case.
+
+Type 2 gives worse value as we take the origin (landmark part) far away from the locality of the actual landmarks.
+
+Type 1 and Type 3, counter intuitively, show a somewhat decreasing value as we take the origin farther away.
+
+As we increase noise, the value increases for all types, as expected.
 
 
 
