@@ -169,7 +169,7 @@ end
 %%% EQF2 %%%
 %Loop for X
 X_eqf2(1:4+n, 1:4+n)=eye(4+n); 
-X_eqf2(1:4,1:4)= inv(P_0_eqf1)*P_in_e;
+X_eqf2(1:4,1:4)= inv(P_0_eqf2)*P_in_e;
 for k=1:n
    X_eqf2(1:3, 4+k)= inv(R_P0_eqf2)*(p_e(:,k)- p_0_eqf2(:,k)); 
 end
@@ -231,7 +231,9 @@ Jag_eqf1(1:(N+6),1:(N+6))=T_eqf1*Jag_0*transpose(T_eqf1);
 
 %%% EQF2 %%%
 Jag_eqf2=zeros(N+6,(iter+1)*(N+6));
-Jag_eqf2(1:(N+6),1:(N+6))=M_trans*T_eqf2*Jag_0*transpose(T_eqf2)*transpose(M_trans);
+Jag_eqf2(1:(N+6),1:(N+6))=M_trans*T_eqf2*Jag_0*transpose(T_eqf2)*transpose(M_trans); %%% DOUBT!!! %%%
+%Jag_eqf2(1:(N+6),1:(N+6))=M_trans*Jag_eqf1(1:(N+6),1:(N+6))*transpose(M_trans);
+
 
 %%% EQF1 %%%
 %Delta equation part
