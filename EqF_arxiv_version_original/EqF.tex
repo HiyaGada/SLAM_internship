@@ -191,7 +191,7 @@ Alternatively, a shorter form denotes the differential as a map between the tang
 \end{align*}
 where $v \in \tT_\xi \calM$ for some $\xi \in \calM$ that is left implicit.
 
-Given two maps $h_1 : \calM \to \calN_1$, $h_2 : \calM \to \calN_2$, denote their composition by
+Given two maps $h_1 : \calM \to \calN_1$, $h_2 : \todo{\calN_1} \to \calN_2$, denote their composition by
 \begin{align*}
     h_2 \circ h_1 : \calM &\to \calN_2, \\
     \xi &\mapsto h_2(h_1(\xi)).
@@ -211,7 +211,7 @@ The Adjoint map $\Ad: \grpG \times \gothg \to \gothg$ is defined by
     \Ad_X U := \at{\dds}{s=0} X \exp(s U) X^{-1}.
 \end{align*}
 
-A right\footnote{All group actions considered in this paper are right group actions.} group action of $\grpG$ on $\calM$ is a map $\phi : \grpG \times \calM \to \calM$ such that
+A right\footnote{All group actions considered in this paper are right group actions.} group action of $\grpG$ on $\calM$ is a map $\phi : \grpG \times \calM \to \calM$ \todo{satisfies}
 \begin{align*}
     \phi(\id, \xi) &= \xi, &
     \phi(Y, \phi(X, \xi)) &= \phi(X Y, \xi),
@@ -246,23 +246,27 @@ A symmetry of a system $f$ is a pair of group actions, $\phi : \grpG \times \cal
 \end{align}
 for all $X \in \grpG$, $\xi \in \calM$, and $u \in \vecL$.
 In this case, we refer to $f$ as an \emph{equivariant system}, and the diagram
+
+\todo{
 \[
-%\xymatrixcolsep{70pt}
+\xymatrixcolsep{50pt}
 \xymatrix{
-\vecL
-\ar[r]^{f}
-\ar[d]^{\psi_X}
+\calM \times \vecL
+\ar[d]^{f_u(\xi)}
+\ar[r]^{(\phi_X, \psi_X)}
 &
-\gothX(\calM)
-\ar[d]^{\Phi_X} 
+\calM \times \vecL
+\ar[d]^{f_{\psi_X(u)}(\phi_X(\xi))} 
 \\
-\vecL
-\ar[r]^{f}
+\gothX(\calM)
+\ar[r]^{\tD \phi_X}
 &
 \gothX(\calM)
 }
-\]
-commutes for all $X \in \grpG$.
+\]}
+commutes for all $X \in \grpG$, \todo{$\xi \in \calM$, and $u \in \vecL$}.
+
+\todo{(Changed the $\Phi_X$ to $\phi_X$)}
 
 Given an equivariant system $f$ with symmetry $(\phi, \psi)$, there exists a Lie-algebraic function $\Lambda : \calM \times \vecL \to \gothg$ satisfying
 \begin{align}
@@ -271,22 +275,23 @@ Given an equivariant system $f$ with symmetry $(\phi, \psi)$, there exists a Lie
 \end{align}
 for all $X \in \grpG$, $\xi \in \calM$, and $u \in \vecL$.
 We refer to $\Lambda$ as an \emph{(equivariant) lift} of the system $f$ \citep{mahony2020equivariant}, and the following diagram commutes;
+\todo{
 \[
 \xymatrixcolsep{50pt}
 \xymatrix{
+\calM \times \vecL
+\ar[d]^{\Lambda}
+\ar[r]^{(\phi_X, \psi_X)}
+&
+\calM \times \vecL
+\ar[d]^{\Lambda}
+\\
 \gothg
 \ar[r]^{\Ad_{X^{-1}}}
 &
 \gothg
-\\
-\calM \times \vecL
-\ar[u]^{\Lambda}
-\ar[r]^{(\phi_X, \psi_X)}
-&
-\ar[u]^{\Lambda}
-\calM \times \vecL
 }
-\]
+\]}
 
 %------------------------------------------------
 \subsection{Equivariant Filter}
@@ -331,6 +336,7 @@ For an EqF $(\hat{X}, \Sigma, \vartheta)$, the global state error \citep{van2020
     &\dot{e}(e, u, \hat{X}, \Delta; \mr{\xi}), \label{eq:error_dynamics} \\
     &= \tD_E |_\id \phi(E,e) \left[\Lambda(e, \psi_{\hat{X}^{-1}}(u)) - \Lambda(\mr{\xi}, \psi_{\hat{X}^{-1}}(u)) - \Delta\right], \notag
 \end{align}
+\todo{(Still need to check)}
 where $\mr{\xi} = \vartheta^{-1}(0)$ is the origin of the local coordinates.
 The semicolon notation emphasises that $\dot{e}$ may be thought of as a parametrised vector field, $\dot{e}_{(\mr{\xi}, u, \hat{X}, \Delta)} \in \gothX(\calM)$,
 \begin{align*}
@@ -360,6 +366,8 @@ That is, the following diagram commutes;
 \]
 \end{proposition}
 
+\todo{(Change variables to spaces, need an identity map to make redo this diagram)}
+
 \begin{proof}
 By direct computation,
 \begin{align*}
@@ -385,8 +393,10 @@ In other words, $\hat{X}$ affects the dynamics of $e$ only through a transformat
 
 \begin{proposition} %%%%% COMPLETE %%%%%%%
 The error dynamics \eqref{eq:error_dynamics} are equivariant as a vector field, in the sense that
+
+(\todo{Changed Phi to phi})
 \begin{align*}
-    \Phi_Z \dot{e}_{(u, \hat{X}, \Delta, \mr{\xi})}
+    \phi_Z \dot{e}_{(u, \hat{X}, \Delta, \mr{\xi})}
     = \dot{e}_{(u, \hat{X}, \Delta, \mr{\xi})}
     % \tD_e |_e \phi(Z, e) \dot{e}(\phi_{Z^{-1}}(e); \mr{\xi}, u, \hat{X}, \Delta) \\
     % = \dot{e} (e, \phi_Z(\mr{\xi}), \psi_Z(u), \hat{X}, \Ad_{Z^{-1}} \Delta),
@@ -400,15 +410,17 @@ That is, the following diagram commutes;
 \ar[r]^{\dot{e}}
 &
 \dot{e}_{(u, \hat{X}, \Delta, \mr{\xi})}
-\ar[d]^{\Phi_Z}
+\ar[d]^{\phi_Z}
 \\
 (\psi_Z(u), \hat{X}, \Ad_{Z^{-1}} \Delta, \phi_Z(\mr{\xi}))
 \ar[r]^{\dot{e}}
 &
-\Phi_Z \dot{e}_{(u, \hat{X}, \Delta, \mr{\xi})}
+\phi_Z \dot{e}_{(u, \hat{X}, \Delta, \mr{\xi})}
 }
 \]
 \end{proposition}
+
+\todo{(Changed Phi to phi)}
 
 \begin{proof}
 Observe that, for any $Z \in \grpG$, $\xi \in \calM$, and $\delta \in \gothg$,
@@ -456,6 +468,8 @@ This completes the proof.
 Let $(\hat{X}, \Sigma, \vartheta)$ be an EqF with state and output gain matrices $Q,R$, respectively.
 Suppose $\mr{\xi} \in \calM$ is the origin of $\vartheta$, i.e. $\vartheta(\mr{\xi}) = 0$.
 Choose any $Z \in \grpG$, and choose a local coordinate chart $\bar{\vartheta}$ about $\xi' := \phi(Z^{-1}, \mr{\xi})$.
+
+\todo{Use $\ob{\mr{\xi}}$.}
 If 
 \begin{align}
     \bar{X} &:= Z \hat{X}, \\
@@ -700,7 +714,7 @@ for all time $t \geq 0$, as required.
 \section{Example: 2D localisation}
 %------------------------------------------------
 
-%as it moves in a circular trajectory with a constant body-fixed velocity U = (Ω×U , VU ), where ΩU = (0, 0, 0.5)rad/s and VU = (1.5, 0, 0) m/s
+%as it moves in a circular trajectory with a constant body-fixed velocity U = (Ω×U , VU ), where ΩU = (0, 0, 0.5)rad/s and VU = (1.5, 0, 0) m/s
 
 We verify the general theory presented by showing a simple example of 2D robot localisation from landmark measurements.
 Consider a robot moving in the 2D plane, equipped with a sensor (e.g. a depth camera or LIDAR) able to recognise some known landmarks.
