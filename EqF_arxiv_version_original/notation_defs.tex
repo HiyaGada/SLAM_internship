@@ -1,0 +1,339 @@
+% This file contains the explicit notation definitions
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% fields %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\qq}{\mathbb{Q}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Sets
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Lie groups
+\providecommand{\SO}{\mathbf{SO}}
+\providecommand{\SL}{\mathbf{SL}}
+\providecommand{\GL}{\mathbf{GL}}
+\providecommand{\SE}{\mathbf{SE}}
+\providecommand{\SOT}{\mathbf{SOT}}
+\providecommand{\SIM}{\mathbf{SIM}}
+\providecommand{\MR}{\mathbf{MR}}
+\providecommand{\SLAM}{\mathbf{SLAM}}
+\providecommand{\VSLAM}{\mathbf{VSLAM}}
+\providecommand{\grpG}{\mathbf{G}}
+\providecommand{\grpH}{\mathbf{H}}
+\providecommand{\grpK}{\mathbf{K}}
+\providecommand{\grpN}{\mathbf{N}}
+\providecommand{\grpR}{\mathbf{R}}
+\providecommand{\grpS}{\mathbf{S}}
+\providecommand{\grpZ}{\mathbf{Z}}
+
+% Lie algebras
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\providecommand{\gothgl}{\mathfrak{gl}}
+\providecommand{\gothso}{\mathfrak{so}}
+\providecommand{\gothse}{\mathfrak{se}}
+\providecommand{\gothsl}{\mathfrak{sl}}
+\providecommand{\gothsim}{\mathfrak{sim}}
+\providecommand{\gothsot}{\mathfrak{sot}}
+\providecommand{\gothslam}{\mathfrak{slam}}
+\providecommand{\gothvslam}{\mathfrak{vslam}}
+\providecommand{\gothmr}{\mathfrak{mr}}
+\providecommand{\gothe}{\mathfrak{e}}
+\providecommand{\gothg}{\mathfrak{g}}
+\providecommand{\gothh}{\mathfrak{h}}
+\providecommand{\gothk}{\mathfrak{k}}
+\providecommand{\gothl}{\mathfrak{l}}
+\providecommand{\gothn}{\mathfrak{n}}
+\providecommand{\gothr}{\mathfrak{r}}
+\providecommand{\goths}{\mathfrak{s}}
+\providecommand{\gothu}{\mathfrak{u}}
+\providecommand{\gothv}{\mathfrak{v}}
+\providecommand{\gothz}{\mathfrak{z}}
+\providecommand{\gothB}{\mathfrak{B}}
+\providecommand{\gothK}{\mathfrak{K}}
+\providecommand{\gothL}{\mathfrak{L}}
+\providecommand{\gothR}{\mathfrak{R}}
+\providecommand{\gothU}{\mathfrak{U}}
+\providecommand{\gothV}{\mathfrak{V}}
+\providecommand{\gothW}{\mathfrak{W}}
+\providecommand{\gothX}{\mathfrak{X}} % as in X(M)
+\providecommand{\gothZ}{\mathfrak{Z}}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% shortcuts
+\providecommand{\so}{\mathfrak{so}}
+\providecommand{\se}{\mathfrak{se}}
+\providecommand{\sot}{\mathfrak{sot}}
+\providecommand{\slam}{\mathfrak{slam}}
+\providecommand{\vslam}{\mathfrak{vslam}}
+% \renewcommand{\sl}{\mathfrak{sl}} % not a good idea to redefine \sl
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+% manifolds
+\providecommand{\Sph}{\mathrm{S}}
+\providecommand{\RP}{\R\mathbb{P}}
+
+\providecommand{\calA}{\mathcal{A}}
+\providecommand{\calB}{\mathcal{B}}
+\providecommand{\calC}{\mathcal{C}}
+\providecommand{\calD}{\mathcal{D}}
+\providecommand{\calE}{\mathcal{E}}
+\providecommand{\calF}{\mathcal{F}}
+\providecommand{\calG}{\mathcal{G}}
+\providecommand{\calH}{\mathcal{H}}
+\providecommand{\calI}{\mathcal{I}}
+\providecommand{\calJ}{\mathcal{J}}
+\providecommand{\calK}{\mathcal{K}}
+\providecommand{\calL}{\mathcal{L}}
+\providecommand{\calM}{\mathcal{M}}
+\providecommand{\calN}{\mathcal{N}}
+\providecommand{\calO}{\mathcal{O}}
+\providecommand{\calP}{\mathcal{P}}
+\providecommand{\calQ}{\mathcal{Q}}
+\providecommand{\calR}{\mathcal{R}}
+\providecommand{\calS}{\mathcal{S}}
+\providecommand{\calT}{\mathcal{T}}
+\providecommand{\calU}{\mathcal{U}}
+\providecommand{\calV}{\mathcal{V}}
+\providecommand{\calX}{\mathcal{X}}
+\providecommand{\calY}{\mathcal{Y}}
+\providecommand{\calZ}{\mathcal{Z}}
+
+% homogeneous spaces
+\providecommand{\homG}{\mathcal{G}}
+\providecommand{\homM}{\mathcal{M}}
+\providecommand{\homX}{\mathcal{X}}
+\providecommand{\homU}{\mathcal{U}}
+\providecommand{\homV}{\mathcal{V}}
+
+% Lie torsors
+\providecommand{\torSO}{\mathcal{SO}}
+\providecommand{\torSL}{\mathcal{SL}}
+\providecommand{\torGL}{\mathcal{GL}}
+\providecommand{\torSE}{\mathcal{SE}}
+\providecommand{\torG}{\mathcal{G}}
+
+% total spaces
+\providecommand{\totT}{\mathcal{T}}
+
+% Stability Sets
+\providecommand{\basin}{\mathcal{B}} % basin of attraction
+%\providecommand{\setdef}[2]{\left\{ {#1} \;\vline\; {#2} \right\}}
+
+% vector spaces
+\providecommand{\vecG}{\mathbb{G}} % tangent space at X_0
+\providecommand{\vecK}{\mathbb{K}} % kernel of linear operator.
+\providecommand{\vecO}{\mathbb{O}}
+\providecommand{\vecU}{\mathbb{U}}
+\providecommand{\vecL}{\mathbb{L}}
+\providecommand{\vecV}{\mathbb{V}}
+\providecommand{\vecW}{\mathbb{W}}
+\providecommand{\vecY}{\mathbb{Y}}
+\providecommand{\bfV}{\mathbf{V}}
+\providecommand{\calV}{\mathcal{V}}
+
+% Euclidean space
+\providecommand{\eucE}{\mathbb{E}}
+
+% Matrix spaces
+\providecommand{\Sym}{\mathbb{S}} % symmetric matrix $\Sym(n)$
+\providecommand{\PD}{\mathbb{S}_+} % positive definite matrices.
+
+% Frame bundle
+\providecommand{\FSO}{\calF_{T \SO}}
+\providecommand{\FB}{\calF} % framebundle.  But also extended function.
+
+%% sets of functions
+%\providecommand{\VF}{\mathfrak{V}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% group elements
+\providecommand{\Id}{I} % identity of a matrix group.
+
+% vector space elements
+\providecommand{\eb}{\mathbf{e}} % \providecommand{\eb}{\vec{e}}
+
+% errors
+\providecommand{\EE}{E} % group error
+\providecommand{\ee}{e} % induced state error
+\providecommand{\Eone}{E_1} % Type one error
+\providecommand{\Etwo}{E_2} % Type two error
+\providecommand{\EL}{E_R} % Type one error
+\providecommand{\ER}{E_L} % Type two error
+
+
+% innovations
+\providecommand{\inn}{\delta}
+\providecommand{\Inn}{\Delta}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% functions and mapping
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% extended input functions
+%\providecommand{\extf}{\overline{f}}
+%\providecommand{\bff}{\mathbf{f}} % extended input function - boldface f
+\providecommand{\calf}{\mathpzc{f}} % extended input function - boldface f
+
+% functions like \cos
+\DeclareMathOperator{\erf}{erf}
+
+% operators
+\DeclareMathOperator{\inv}{inv}
+\DeclareMathOperator{\tr}{tr}
+%\providecommand{\trace}[1]{\tr\left(#1\right)}
+\DeclareMathOperator{\vex}{vrp}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\kernel}{ker}
+\DeclareMathOperator{\image}{im}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+
+
+% maps
+\providecommand{\id}{\mathrm{id}} % identity map
+\providecommand{\pr}{\mathbb{P}} % projection
+\providecommand{\prse}{\mathbb{P}_{\se}} % projection
+\providecommand{\mm}{\mathbb{m}} % monomorphism
+
+% cost
+\providecommand{\cost}{\ell} %% local costs
+\providecommand{\Lyap}{\mathcal{L}} %% aggregate cost
+
+% vector and matrix reps
+\DeclareMathOperator{\vrp}{vrp} %% vector representation
+\DeclareMathOperator{\mrp}{mrp} %% matrix representaiton
+%\providecommand{\Vrp}{\mathfrak{v}} %% vector representation
+\providecommand{\Vrp}{\vee} %% vector representation
+%\providecommand{\Mrp}{\mathfrak{m}} %% matrix representaiton
+\providecommand{\Mrp}{\wedge} %% matrix representaiton
+%\providecommand{\Vrp}{\mathtt{V}} %% Old notation vector representation
+%\providecommand{\Mrp}{\mathtt{M}} %% Old notation vector representation
+%% JT - it might be worth considering making the \Vrp and \Mrp glyphs a little smaller.  this would stop them dominating the symbol that they are attached to.
+
+% old notation for velocity ups and downs.
+\providecommand{\gdown}[1]{#1\hspace{-1.5mm}\downharpoonright}
+\providecommand{\gup}[1]{#1\hspace{-1.5mm}\upharpoonright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Differential notation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% differentials
+\providecommand{\tT}{\mathrm{T}} % tangent bundles
+\providecommand{\td}{\mathrm{d}}
+\providecommand{\tD}{\mathrm{D}}
+\providecommand{\tL}{\mathrm{L}}
+\providecommand{\pd}{\partial}
+\providecommand{\ddt}{\frac{\td}{\td t}}
+\providecommand{\Ddt}{\frac{\tD}{\td t}}
+\providecommand{\ddtau}{\frac{\td}{\td \tau}}
+\providecommand{\pdt}{\frac{\partial}{\partial t}}
+\providecommand{\pdtau}{\frac{\partial}{\partial \tau}}
+\providecommand{\dt}{\td t}
+\providecommand{\dtau}{\td \tau}
+
+\providecommand{\Hess}{\mathrm{Hess}}
+
+%\providecommand{\Fr}{test}
+%\providecommand{\Fr}[2]{\left. \mathrm{D}_{#1} \right|_{#2}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% frames
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% frames
+\def\frameA{\mbox{$\{A\}$}}
+\def\frameAprime{\mbox{$\{A'\}$}}
+\def\frameB{\mbox{$\{B\}$}}
+\def\frameC{\mbox{$\{C\}$}}
+\def\frameD{\mbox{$\{D\}$}}
+\def\frameE{\mbox{$\{E\}$}}
+
+\def\frameP{\mbox{$\{P\}$}}
+\def\framePprime{\mbox{$\{P'\}$}}
+\def\frameZero{\mbox{$\{0\}$}}
+\def\frameOne{\mbox{$\{1\}$}}
+\def\frameTwo{\mbox{$\{2\}$}}
+\def\frameThree{\mbox{$\{3\}$}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Notation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% accents
+% command derived from mathring. Used for origin.
+\providecommand{\mr}[1]{{#1}^\circ} % reference element.
+\providecommand{\ub}[1]{\underline{#1}}
+% homogeneous vectors.
+\providecommand{\ob}[1]{\overline{#1}} % homogeneous vector
+%% Define an \obb command for homogeneous free vectors.
+% using https://tex.stackexchange.com/questions/18408/get-a-black-mathring-symbol
+% I have accessed the accents package directly.
+% This allows me to define my own \mathring equivalent comment \mathcirc{#1}. % I then use the raisebox command in the definition of the mathcirc accent to lower the accent by -0.52ex.
+%http://www.emerson.emory.edu/services/latex/latex_148.html
+\usepackage{accents}
+\makeatletter
+\providecommand{\scirc}{%
+    \hbox{\fontfamily{\rmdefault}\fontsize{0.4\dimexpr(\f@size pt)}{0}\selectfont{\raisebox{-0.52ex}[0ex][-0.52ex]{$\circ$}}}}
+%% To move the circle down the raisebox command is used.  Note that the circle is sitting at the bottom of the accent box and hence the negative extend text option needs to be used.  This is set to the same value as the raisebox argument - both negative to drop the text.  The value -0.52ex is handtuned.
+\DeclareRobustCommand{\mathcirc}{\accentset{\scirc}}
+\makeatother
+%% The above defines the new \mathcirc command.
+%% I use \mathrlap to overlap the \overline and \mathcirc accents to obtain the homogeneous free vector accent.
+\providecommand{\obb}[1]{\mathrlap{\overline{#1}}\mathcirc{#1}}
+
+%% Special characters
+\mathchardef\mhyphen="2D
+% For hyphen in math expressions.  eg. Z-Y-X Euler angles.
+
+% Indices - needs package tensor to work.
+%% spatial coordinates
+\providecommand{\idx}[4]{\tensor*[_{#3}^{#2}]{#1}{_{#4}}}
+%% first argument is symbol
+%% seoncd arugment is expressed with respect to or coordinates
+%% third index is the measured with respect to or reference.
+%% fourth index is the tip or index.
+
+%% spatial coordinates with a superscript
+\providecommand{\ids}[5]{\tensor*[_{#3}^{#2}]{#1}{^{#5}_{#4}}}
+%% the fifth argument is is the operator or superscript - usually \top, or \vee, or \times, etc.
+
+%% spatial transformation
+\providecommand{\idt}[3]{\tensor*[^{#2}]{#1}{_{#3}}}
+%% first argument is symbol
+%% seoncd arugment is expressed with respect to or coordinates
+%% third index is the tip or index.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Terminology
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% for citations
+\providecommand{\etal}{\textit{et al.}~}
+
+\providecommand{\typetwo}{type II\xspace} %% compatible
+\providecommand{\Typetwo}{Type II\xspace} %% compatible
+\providecommand{\typeone}{type I\xspace} %% complementary
+\providecommand{\Typeone}{Type I\xspace} %% complementary
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "observer-book"
+%%% End:

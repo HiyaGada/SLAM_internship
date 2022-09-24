@@ -1,0 +1,84 @@
+
+% Colour.  Used mostly for todos/notes/audits.
+\usepackage{xcolor}  % Needed for colours - load before mdframed
+
+%% RM Commenting process
+%===================================================
+%% comment environments {audit}
+% audit.  Its an environment used for large chunks of text
+\newenvironment{audit}{\color{orange}}{\color{black}}
+% todo - use for a reminder of things to do.
+\newcommand{\todo}[1]{{\color{red} #1}}
+%% aside - a short comment to the authors, but not requiring work.
+\newcommand{\aside}[1]{{\color{blue} #1}}
+%% \margin{...} % a very short comment put in the margin.
+\newcommand{\margin}[1]{\marginpar{\tiny #1}}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%% Uncomment to switch off notes
+%\renewcommand{\margin}[1]{} %% Get rid of all margin comments
+%\renewcommand{\todo}[1]{}%%  Get rid of todo comments
+%\renewenvironment{audit}{}{} %% leave the audit text but without the colour.
+%\renewcommand{\aside}[1]{} %% Get rid of all comments
+%===================================================
+
+% math symbols 
+\usepackage{amssymb}
+% We did use MnSymbol but this had problems with type 3 fonts.
+
+\usepackage{amsmath}
+\usepackage{mathdots}
+
+%  this is used for \mathclap and symbol generation needed for \obb symbol.
+\usepackage{mathtools} 
+
+% for \mathbb
+%\usepackage{bbm}
+%\let\mathbb\mathbbm
+
+% left indices
+\usepackage{tensor}
+
+% for \mathcal lower case
+\usepackage{urwchancal}
+\DeclareFontFamily{OT1}{pzc}{}
+\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.10] pzcmi7t}{}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+% allow the use of scalable vector graphics
+\usepackage{graphicx}
+\usepackage{ifpdf}
+\ifpdf
+\usepackage{epstopdf}
+\epstopdfsetup{update,prepend}
+\PrependGraphicsExtensions{.svg}
+\DeclareGraphicsRule{.svg}{pdf}{.pdf}{% <- do not remove!
+  `inkscape -z -D #1 --export-pdf=\noexpand\OutputFile
+}
+\fi
+%% To switch off figures -
+%\usepackage[demo]{graphicx} % use this to switch off figures
+
+
+% theorem environments
+\usepackage{amsthm}
+% -- or
+% \theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+% list environments
+\newenvironment{List}
+{\begin{list}
+ {[\arabic{enumi}]}
+ {\usecounter{enumi}
+  \settowidth{\labelwidth}{[99]}}
+  \setlength{\labelsep}{1em}}
+{\end{list}}
