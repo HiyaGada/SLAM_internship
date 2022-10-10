@@ -1,5 +1,5 @@
 %Number of iterations
-iter=50;
+iter=100;
 
 %Set seed
 rng('default');
@@ -79,6 +79,7 @@ for i =1:iter
     Pose(1:4,4*(i+1)-3:4*(i+1))= Pose(1:4,4*i-3:4*i)*expm(V_t(1:4,4*i-3:4*i)*dt);
 end
 
+%!!!!
 %Making simulated measurement y_k
 y=zeros(3*n,iter);
 for i=1:iter
@@ -87,8 +88,17 @@ for i=1:iter
    end
 end
 
+% y=zeros(3*(n+1),iter);
+% for i=1:iter
+%    y(1:3, i)= ;
+%    for k=1:n
+%        y(3*k+1:3*k+3,i)=transpose(Pose(1:3, 4*i-3:4*i-1))*(p(:,k)-(Pose(1:3,4*i)));
+%    end
+% end
+
 %Adding noise
 
+%!!!!!!!
 %Std dev
 Rvar=0*eye(6);
 Qvar=0*eye(3*n);
@@ -101,19 +111,12 @@ for i=1:iter
    V_t_m(1:4,4*i-3:4*i) = V_t(1:4,4*i-3:4*i) + skew4(Rvar*randn(6,1)); 
 end
 
+%!!!!!!!!!
 %Adding noise in y_k to get measured y_k_m 
 y_m=zeros(3*n,iter);
 for i=1:iter
     y_m(:,i)=y(:,i) + Qvar*randn(3*n,1);
 end
-
-% filename = strcat('save_variables.mat');
-% save(filename)
-% 
-% % Main EQF code 
-% 
-% naamo = strcat('save_variables.mat');
-% load(naamo)
 
 
 
@@ -121,6 +124,7 @@ end
 
 %%% EQF1 %%%
 %Measure the origin output
+%!!!!!!!
 for i= 1:n
     h_eqf1(:,i)=transpose(R_P0_eqf1)*(p_0_eqf1(:,i)-xp_0_eqf1);
 end
@@ -142,6 +146,7 @@ C_eqf1(:,7:N+6)=temp_eqf1;
 
 %%% EQF2 %%%
 %Measure the origin output
+%!!!!!!!
 for i= 1:n
     h_eqf2(:,i)=transpose(R_P0_eqf2)*(p_0_eqf2(:,i)-xp_0_eqf2);
 end
@@ -185,10 +190,10 @@ Z = X_eqf1(1:4+n, 1:4+n)*inv(X_eqf2(1:4+n, 1:4+n)); %at t=0
 M_trans = eye(M); 
 M_trans(1:3, 1:3) = transpose(Z(1:3,1:3));
 M_trans(4:6, 4:6) = transpose(Z(1:3,1:3));
-M_trans(4:6, 1:3) = -skew3(transpose(Z(1:3,1:3))*Z(1:3, 4))*transpose(Z(1:3,1:3));
+M_trans(4:6, 1:3) = -skew3(transpose(Z(1:3,1:3))*Z(1:3, 4))*transpose(Z(1:3,1:3)); %%%CHECK!!%%%
 % Loop for column 1
 for k= 1:n
-    M_trans(3*k + 4: 3*k + 6, 1:3)= -R_P0_eqf1*skew3(M_trans(1:3, 4+k)) ;
+    M_trans(3*k + 4: 3*k + 6, 1:3)= -R_P0_eqf1*skew3(Z(1:3, 4+k)) ;
 end
 
 %%% EQF1 %%%
@@ -236,9 +241,9 @@ Jag_eqf1(1:(N+6),1:(N+6))=T_eqf1*Jag_0*transpose(T_eqf1);
 
 %%% EQF2 %%%
 Jag_eqf2=zeros(N+6,(iter+1)*(N+6));
-%Jag_eqf2(1:(N+6),1:(N+6))=M_trans*T_eqf2*Jag_0*transpose(T_eqf2)*transpose(M_trans); %%% DOUBT!!! %%%
-Jag_eqf2(1:(N+6),1:(N+6))=M_trans*Jag_eqf1(1:(N+6),1:(N+6))*transpose(M_trans);
-
+Jag_eqf2(1:(N+6),1:(N+6))=M_trans*T_eqf1*Jag_0*transpose(T_eqf1)*transpose(M_trans); %%% DOUBT!!! %%% It's correct!
+%Jag_eqf2(1:(N+6),1:(N+6))=M_trans*Jag_eqf1(1:(N+6),1:(N+6))*transpose(M_trans);
+%Jag_eqf2(1:(N+6),1:(N+6))=T_eqf2*Jag_0*transpose(T_eqf2);
 
 %%% EQF1 %%%
 %Delta equation part
@@ -247,6 +252,8 @@ H_eqf1(1:6,1:6)= eye(6);
 for i=1:n
     H_eqf1(4+(i*3):6+(i*3),4+(i*3):6+(i*3))=transpose(R_P0_eqf1);
 end
+
+%!!!!!!!
 
 for i=1:iter
     %Find y_k
@@ -338,29 +345,8 @@ end
 
 %%% EQF1 %%%
 %Correction/Allignment factor
-S_corr_eqf1=P_0_eqf1*X_eqf1(1:4,(iter)*(4+n)-3-n :(iter)*(4+n)-n)*inv(Pose(1:4,4*iter-3:4*iter));
-
-%Iterated robot pose
-P_hat_eqf1=zeros(4,4*iter);
-x_hat_eqf1=zeros(3,iter);
-for i= 1:iter
-    P_hat_eqf1(1:4,4*i-3:4*i)=inv(S_corr_eqf1)*P_0_eqf1*X_eqf1(1:4,(i)*(4+n)-3-n: (i)*(4+n)-n);
-    x_hat_eqf1(1:3,i)=P_hat_eqf1(1:3,4*i);
-end
-
-%Iterated landmarks
-p_hat_eqf1=zeros(3*n,iter);
-for i=1:iter
-    for k=1:n
-        p_hat_eqf1(3*k-2:3*k,i)=p_0_eqf1(:,k)+(R_P0_eqf1*X_eqf1(1:3,(i)*(4+n)-n+k));
-        %p_hat(3*k-2:3*k,i)=inv(S_corr)*p_hat(3*k-2:3*k,i);
-        p_hat_eqf1(3*k-2:3*k,i)=transpose(S_corr_eqf1(1:3,1:3))*(p_hat_eqf1(3*k-2:3*k,i)- S_corr_eqf1(1:3,4));
-    end
-end
-
-%%% EQF1 %%%
-%Correction/Allignment factor
-S_corr_eqf1=P_0_eqf1*X_eqf1(1:4,(iter)*(4+n)-3-n :(iter)*(4+n)-n)*inv(Pose(1:4,4*iter-3:4*iter));
+%S_corr_eqf1=P_0_eqf1*X_eqf1(1:4,(iter)*(4+n)-3-n :(iter)*(4+n)-n)*inv(Pose(1:4,4*iter-3:4*iter));
+S_corr_eqf1=eye(4);
 
 %Iterated robot pose
 P_hat_eqf1=zeros(4,4*iter);
@@ -383,7 +369,8 @@ end
 
 %%% EQF2 %%%
 %Correction/Allignment factor
-S_corr_eqf2=P_0_eqf2*X_eqf2(1:4,(iter)*(4+n)-3-n :(iter)*(4+n)-n)*inv(Pose(1:4,4*iter-3:4*iter));
+%S_corr_eqf2=P_0_eqf2*X_eqf2(1:4,(iter)*(4+n)-3-n :(iter)*(4+n)-n)*inv(Pose(1:4,4*iter-3:4*iter));
+S_corr_eqf2 = eye(4);
 
 %Iterated robot pose
 P_hat_eqf2=zeros(4,4*iter);
@@ -403,7 +390,9 @@ for i=1:iter
     end
 end
 
-name = strcat('EqF_variables.mat');
+
+    
+name = strcat('variables.mat');
 save(name)
 
 
@@ -417,7 +406,7 @@ end
 function X = skew3(x)
     X=[0 -x(3) x(2) ; x(3) 0 -x(1) ; -x(2) x(1) 0 ]; 
 end
-function V=unskew4(P)
+function V= unskew4(P)
     V=[P(3,2); P(1,3); P(2,1); P(1,4); P(2,4); P(3,4)];
 end
 

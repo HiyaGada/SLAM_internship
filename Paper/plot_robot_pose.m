@@ -1,22 +1,22 @@
-load('EqF_variables')
+load('variables')
 
 hold on
-axis([0 1 -0.1 0.9])
+% axis([0 1 -0.1 0.9])
 
-%Plot true position of robot
-for i=1:iter-1
-    x_ttrue=Pose(1:3,4*i);
-    scatter(x_ttrue(1),x_ttrue(2), 'filled','red','HandleVisibility','off')
-    pause(.001)
-end
+% %Plot true position of robot
+% for i=1:iter-1
+%     x_ttrue=Pose(1:3,4*i);
+%     scatter(x_ttrue(1),x_ttrue(2), 'filled','red','HandleVisibility','off')
+%     pause(.001)
+% end
 
-x_ttrue=Pose(1:3,4*iter);
-scatter(x_ttrue(1),x_ttrue(2),'filled', 'red','DisplayName','True position')
+% x_ttrue=Pose(1:3,4*iter);
+% scatter(x_ttrue(1),x_ttrue(2),'filled', 'red','DisplayName','True position')
 
 %%% EQF1 %%%
 %Plot iterated position of robot
 for i= 1:iter-1
-    scatter(x_hat_eqf1(1,i),x_hat_eqf1(2,i),'blue','HandleVisibility','off')
+    scatter(x_hat_eqf1(1,i),x_hat_eqf1(2,i),'d','blue','HandleVisibility','off')
     pause(.001)
 end
 
